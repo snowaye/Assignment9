@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Assignment9</string>
+    <string name="label_login">Login</string>
+    <string name="label_sign_in">Sign in to your account to continue</string>
+    <string name="label_email">Email ID</string>
+    <string name="hint_email">name@gmail.com</string>
+    <string name="label_password">Password</string>
+    <string name="hint_password">***********</string>
+    <string name="label_forget_password">Forgot Password?</string>
+    <string name="btn_text_login">Login</string>
 </resources>
