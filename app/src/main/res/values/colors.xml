@@ -3,4 +3,8 @@
     <color name="colorPrimary">#469139</color>
     <color name="colorPrimaryDark">#38742d</color>
     <color name="colorAccent">#9CB099</color>
+
+    <color name="activityBackgroundColor">#FAFAFA</color>
+    <color name="textColorMain">#333333</color>
+    <color name="textColorMainLight">#666666</color>
 </resources>

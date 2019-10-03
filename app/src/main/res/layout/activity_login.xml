@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/activityBackgroundColor"
     tools:context=".activity.LoginActivity">
 
     <TextView
@@ -14,7 +15,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_login_title"
+        android:textColor="@color/colorPrimaryDark"
         android:text="@string/label_login"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,9 +29,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        android:textColor="@color/textColorMainLight"
         android:text="@string/label_sign_in"
+        android:textSize="@dimen/text_size_body_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_login" />
@@ -37,12 +44,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginTop="96dp"
+        android:fontFamily="@font/roboto_mono_bold"
         android:text="@string/label_email"
+        android:textSize="@dimen/text_size_body_small"
+        android:textColor="@color/textColorMain"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_sign_in" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/hint_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -51,6 +62,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/hint_email"
+        android:padding="16dp"
+        style="@style/LoginEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/label_email" />
@@ -61,7 +74,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginTop="32dp"
+        android:textStyle="bold"
         android:text="@string/label_password"
+        android:textSize="@dimen/text_size_body_small"
+        android:fontFamily="@font/roboto_mono_bold"
+        android:textColor="@color/textColorMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hint_email" />
@@ -75,6 +92,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/hint_password"
+        android:padding="16dp"
+        style="@style/LoginEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,26 +104,39 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:gravity="end"
         android:text="@string/label_forget_password"
+        android:textSize="@dimen/text_size_body_small"
+        android:textColor="@color/textColorMainLight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="96dp"
         android:paddingStart="@dimen/margin_large"
         android:paddingEnd="@dimen/margin_large"
+        android:background="@drawable/bg_btn_login"
+        android:textColor="#FFFFFF"
         android:text="@string/btn_text_login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:foregroundGravity="top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_bunch" />
 </androidx.constraintlayout.widget.ConstraintLayout>
