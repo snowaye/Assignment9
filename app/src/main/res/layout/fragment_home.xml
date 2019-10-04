@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/activityBackgroundColor"
+    android:layout_width="match_parent"
+    android:id="@+id/rootView"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/wave_background" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/text_size_login_title"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="32dp"
+            android:textStyle="bold"
+            android:text="@string/label_flower_school"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_search"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/activity_vertical_margin"
+            android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:id="@+id/et_search"
+                android:textSize="@dimen/text_size_body"
+                android:textColor="@color/textColorPrimaryLight"
+                android:textColorHint="@color/textColorPrimaryLight"
+                android:hint="@string/label_search"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgv_scan"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:srcCompat="@drawable/ic_barcode"
+                />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recv_plant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/listitem_plant"/>
+
+    </LinearLayout>
+
+</FrameLayout>

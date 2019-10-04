@@ -2,10 +2,16 @@ package com.padc.batch9.assignment9.data.vo
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "user")
 class UserVo (
+
+    @ColumnInfo(name = "plantId")
+    @PrimaryKey
+    val id:Int,
+
     @SerializedName("user_id")
     @ColumnInfo(name="user_id")
     val userId:String,
