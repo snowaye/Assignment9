@@ -14,7 +14,7 @@ import com.padc.batch9.assignment9.persistence.typeconverter.TipTypeConverter
 import com.padc.batch9.assignment9.persistence.typeconverter.UploadedUserTypeConverter
 import com.padc.batch9.assignment9.util.PLANT_DB
 
-@Database(entities = arrayOf(UserVo::class, PlantVo::class), version = 9, exportSchema = false)
+@Database(entities = arrayOf(UserVo::class, PlantVo::class), version = 10, exportSchema = false)
 @TypeConverters(TipTypeConverter::class, UploadedUserTypeConverter::class, StringTypeConverter::class)
 abstract class PlantDatabase : RoomDatabase(){
     abstract fun userDao():UserDao

@@ -4,6 +4,7 @@ import com.padc.batch9.assignment9.mvp.view.BaseView
 
 
 abstract class BasePresenter<T: BaseView> {
+
     protected lateinit var mView:T
 
     open fun initPresenter(view:T) {

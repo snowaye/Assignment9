@@ -33,9 +33,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="333333" />
-                            <entry key="outputName" value="ic_favorite" />
-                            <entry key="sourceFile" value="C:\Users\SaungHninAye\Desktop\Assignment9\leaf.svg" />
+                            <entry key="outputName" value="ic_left_arrow" />
+                            <entry key="sourceFile" value="C:\Users\SaungHninAye\Desktop\Assignment9\left-arrow.svg" />
                           </map>
                         </option>
                       </PersistentState>

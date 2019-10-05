@@ -15,10 +15,10 @@ abstract class PlantDao {
     @Query("SELECT * FROM plant")
     abstract fun getAllPlants():List<PlantVo>
 
-    @Query("SELECT * FROM plant WHERE plant_id=:id ")
+    @Query("SELECT * FROM plant WHERE plant_id LIKE :id ")
     abstract fun findPlantById(id:String):PlantVo
 
-    fun areEventsExistInDB(): Boolean{
+    fun arePlantsExistInDB(): Boolean{
         return getAllPlants().isNotEmpty()
     }
 }

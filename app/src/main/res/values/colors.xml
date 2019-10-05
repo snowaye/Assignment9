@@ -4,9 +4,9 @@
     <color name="colorPrimaryDark">#38742d</color>
     <color name="colorAccent">#9CB099</color>
 
-    <color name="activityBackgroundColor">#FAFAFA</color>
+    <color name="activityBackgroundColor">#ecf4eb</color>
     <color name="textColorMain">#333333</color>
     <color name="textColorMainLight">#666666</color>
     <color name="textColorPrimary">#FFFFFF</color>
-    <color name="textColorPrimaryLight">#F0F0F0</color>
+    <color name="textColorPrimaryLight">#FAFAFA</color>
 </resources>

@@ -1,5 +1,6 @@
 package com.padc.batch9.assignment9.data.model
 
+import android.util.Log
 import com.padc.batch9.assignment9.data.vo.PlantVo
 
 object PlantModelImpl: BaseModel(), PlantModel {
@@ -25,6 +26,7 @@ object PlantModelImpl: BaseModel(), PlantModel {
     }
 
     override fun getPlantByID(id: String): PlantVo {
+        Log.i("PlanModelImpl", "getPlantByID $id")
         return database.plantDao().findPlantById(id)
     }
 }

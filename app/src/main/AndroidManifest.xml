@@ -15,7 +15,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".activity.BaseActivity"/>
         <activity
-            android:name=".activity.PlantActivity"
+            android:name=".activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.PlantDetailActivity" />
+        <activity android:name=".activity.PlantActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activity.PlantDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activity.MainActivity" />
 
         <meta-data

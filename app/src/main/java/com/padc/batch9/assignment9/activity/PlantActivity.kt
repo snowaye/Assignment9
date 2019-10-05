@@ -1,5 +1,7 @@
 package com.padc.batch9.assignment9.activity
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.navigation.findNavController
@@ -17,6 +19,12 @@ import android.view.WindowManager
 import com.padc.batch9.assignment9.R
 
 class PlantActivity : AppCompatActivity() {
+
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, PlantActivity::class.java)
+        }
+    }
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 

@@ -1,6 +1,7 @@
 package com.padc.batch9.assignment9.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.padc.batch9.assignment9.R
+import com.padc.batch9.assignment9.activity.PlantDetailActivity
 import com.padc.batch9.assignment9.adapter.PlantDataAdapter
 import com.padc.batch9.assignment9.data.vo.PlantVo
 import com.padc.batch9.assignment9.mvp.presenter.PlantListPresenter
@@ -27,6 +29,8 @@ class HomeFragment : BaseFragment(), PlantListView{
 
     override fun navigateToDetail(plantId: String) {
 
+        Log.i("HomeFrag", "plantId$plantId")
+        startActivity(context?.let { PlantDetailActivity.newIntent(it, plantId) })
     }
 
     private lateinit var mPresenter: PlantListPresenter
