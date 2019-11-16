@@ -1,10 +1,14 @@
 package com.padc.batch9.assignment9.mvp.presenter
+import com.padc.batch9.assignment9.mvp.view.LoginView
 
-interface LoginPresenter {
+class LoginPresenter: BasePresenter<LoginView>() {
 
-    fun clear()
 
-    fun doLogin(email:String, password:String)
-
-    fun setProgressBarVisibility(visibility:Int)
+    fun onTapLoginButton(email:String, password:String) {
+        when {
+            email.isEmpty() -> mView.showEmailEmptyError()
+            password.isEmpty() -> mView.showPasswordEmptyError()
+            else -> mView.doLogin(email, password)
+        }
+    }
 }

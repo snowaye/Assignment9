@@ -4,7 +4,10 @@ package com.padc.batch9.assignment9.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import android.view.animation.AnimationUtils
+import androidx.lifecycle.ViewModelProviders
 import coil.api.load
 import coil.transform.CircleCropTransformation
 import com.google.android.material.snackbar.Snackbar
@@ -12,6 +15,7 @@ import com.padc.batch9.assignment9.R
 import com.padc.batch9.assignment9.data.vo.PlantVo
 import com.padc.batch9.assignment9.mvp.presenter.PlantDetailPresenter
 import com.padc.batch9.assignment9.mvp.view.PlantDetailView
+import com.padc.batch9.assignment9.util.Utils
 import kotlinx.android.synthetic.main.activity_plant_detail.*
 import kotlinx.android.synthetic.main.activity_plant_detail.rootView
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -27,6 +31,8 @@ class PlantDetailActivity : BaseActivity(), PlantDetailView {
 
     override fun displayPlantData(plantVo: PlantVo) {
         bindData(plantVo)
+        loadTipListAnimation()
+        loadFavoriteButtonScaleAnimation()
     }
 
     private lateinit var mPresenter:PlantDetailPresenter
@@ -41,21 +47,36 @@ class PlantDetailActivity : BaseActivity(), PlantDetailView {
         }
     }
 
+    var isFavourite:Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_plant_detail)
-
-        mPresenter = PlantDetailPresenter()
+        Utils.setStatusBarColor(this, R.color.textColorPrimary)
+        mPresenter = ViewModelProviders.of(this).get(PlantDetailPresenter::class.java)
         mPresenter.initPresenter(this)
 
         val id = intent.getStringExtra(IE_PLANT_ID)
+        val idSearch = "%"+id
 
         Log.i("id", "id$id")
 
         mPresenter.onUIReady(id)
-        mPresenter.onCreate()
 
         imgvBack.setOnClickListener {navigaeBack()}
+
+        imgv_favorite.setOnClickListener {
+            if (!isFavourite) {
+                imgv_favorite.speed = 1.0f
+                imgv_favorite.playAnimation()
+                isFavourite = true
+            }
+            else {
+                imgv_favorite.speed = -4.0f
+                imgv_favorite.playAnimation()
+                isFavourite = false
+            }
+        }
     }
 
     fun bindData(data:PlantVo) {
@@ -80,28 +101,19 @@ class PlantDetailActivity : BaseActivity(), PlantDetailView {
         tvTip13Value.text = data.tips.placement
     }
 
-    override fun onStart() {
-        super.onStart()
-        mPresenter.onStart()
+    fun loadTipListAnimation() {
+        Handler().postDelayed(Runnable {
+            val animation =  AnimationUtils.loadAnimation(applicationContext, R.anim.slide_in_from_right)
+            tipList.startAnimation(animation)
+        }, 1000)
     }
 
-    override fun onResume() {
-        super.onResume()
-        mPresenter.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        mPresenter.onPause()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        mPresenter.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mPresenter.onDestroy()
+    fun loadFavoriteButtonScaleAnimation() {
+        Handler().postDelayed(Runnable {
+            imgv_favorite.animate()
+                .scaleX(0.5f)
+                .scaleY(0.5f)
+                .duration = 2000
+        }, 1000)
     }
 }

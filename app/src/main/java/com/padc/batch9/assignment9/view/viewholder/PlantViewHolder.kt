@@ -15,7 +15,7 @@ class PlantViewHolder(itemView: View,
         itemView.setOnClickListener {
             val id = data?.plantId
             data?.plantId?.let { id->
-                delegate.onTapItemEvent(id)
+                delegate.onTapItemEvent(id, itemView.imgv_plant)
             }
         }
     }

@@ -62,6 +62,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:scaleType="fitXY"
+            android:transitionName="tPlantName"
             android:layout_height="match_parent"
             tools:srcCompat="@drawable/ic_plant"/>
     </LinearLayout>

@@ -46,16 +46,16 @@
             android:background="@android:color/transparent"
             android:layout_marginTop="200dp">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/imgv_favorite"
+                app:lottie_fileName="favourite_animation.json"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:translationZ="16dp"
                 android:layout_alignParentEnd="true"
                 android:padding="6dp"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:background="@drawable/bg_favorite"
-                app:srcCompat="@drawable/ic_favourite"/>
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -115,6 +115,7 @@
                         android:id="@+id/tvDescription"
                         tools:text="Desciption"/>
                     <LinearLayout
+                        android:id="@+id/tipList"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"

@@ -17,4 +17,5 @@ interface PlantApi {
 
     @POST(GET_PLANTS)
     fun getAllPlants():Call<GetPlantResponse>
+
 }

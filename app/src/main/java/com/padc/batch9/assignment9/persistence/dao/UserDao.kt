@@ -11,4 +11,7 @@ abstract class UserDao {
 
     @Query("SELECT * FROM user WHERE  user_id = :id ")
     abstract fun getUser(id:String): UserVo
+
+    @Query("SELECT * FROM user")
+    abstract fun getAllUser():List<UserVo>
 }

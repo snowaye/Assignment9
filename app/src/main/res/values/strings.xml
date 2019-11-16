@@ -25,4 +25,7 @@
     <string name="menu_favorite">Favorite</string>
     <string name="label_flower_school">Flowers\nSchool</string>
     <string name="label_search">Search</string>
+    <string name="label_error_email">Please enter email</string>
+    <string name="label_error_password">Please enter password</string>
+    <string name="label_okay">Okay</string>
 </resources>

@@ -1,32 +1,31 @@
 package com.padc.batch9.assignment9.data.model
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 import com.padc.batch9.assignment9.data.vo.PlantVo
 
 object PlantModelImpl: BaseModel(), PlantModel {
 
-    override fun getPlants(onSuccess: (List<PlantVo>) -> Unit, onFailure: (String) -> Unit) {
-        val plantFromDB = database.plantDao().getAllPlants()
-        if (plantFromDB.isNotEmpty()) {
-            onSuccess(plantFromDB)
-        }
-        else {
-            plantDataAgent.getPants(
-                {
-                    database.plantDao().insertPlant(it)
-                    onSuccess(it)
-                },
-                onFailure
-            )
-        }
-        plantDataAgent.getPants(
-            onSuccess,
-            onFailure
-        )
+    override fun findPlanByName(name: String): LiveData<List<PlantVo>> {
+        return Transformations.distinctUntilChanged(database.plantDao().findPlantByName(name))
     }
 
-    override fun getPlantByID(id: String): PlantVo {
-        Log.i("PlanModelImpl", "getPlantByID $id")
-        return database.plantDao().findPlantById(id)
+    override fun getPlants(onFailure: (String) -> Unit):LiveData<List<PlantVo>> {
+        val plantFromDB = database.plantDao().getAllPlants()
+
+        plantDataAgent.getPants(
+            {
+                database.plantDao().insertPlant(it)
+            },
+            onFailure
+        )
+        return plantFromDB
+    }
+
+    override fun getPlantByID(id: String): LiveData<PlantVo> {
+        return Transformations.distinctUntilChanged (
+            database.plantDao().findPlantById(id)
+        )
     }
 }

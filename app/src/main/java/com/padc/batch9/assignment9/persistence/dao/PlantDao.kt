@@ -1,5 +1,6 @@
 package com.padc.batch9.assignment9.persistence.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,12 +14,12 @@ abstract class PlantDao {
     abstract fun insertPlant(list:List<PlantVo>):LongArray
 
     @Query("SELECT * FROM plant")
-    abstract fun getAllPlants():List<PlantVo>
+    abstract fun getAllPlants():LiveData<List<PlantVo>>
 
-    @Query("SELECT * FROM plant WHERE plant_id LIKE :id ")
-    abstract fun findPlantById(id:String):PlantVo
+    @Query("SELECT * FROM plant WHERE plant_id LIKE '%' || :id || '%'")
+    abstract fun findPlantById(id:String):LiveData<PlantVo>
 
-    fun arePlantsExistInDB(): Boolean{
-        return getAllPlants().isNotEmpty()
-    }
+    @Query("SELECT * FROM plant WHERE plant_name LIKE :name")
+    abstract fun findPlantByName(name:String):LiveData<List<PlantVo>>
+
 }

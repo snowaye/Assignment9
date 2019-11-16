@@ -14,6 +14,36 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object UserDataAgentImpl: UserDataAgent {
+    override fun login(
+        email: String,
+        password: String,
+        onSuccess: (UserVo) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        val call = plantApi.loginUser(email, password)
+        call.enqueue(object  : Callback<GetLoginResponse> {
+            override fun onFailure(call: Call<GetLoginResponse>, t: Throwable) {
+                onFailure(t.localizedMessage)
+            }
+
+            override fun onResponse(
+                call: Call<GetLoginResponse>,
+                response: Response<GetLoginResponse>
+            ) {
+                val loginResponse = response.body()
+                if (loginResponse != null){
+                    if(loginResponse.userData != null){
+                        onSuccess(loginResponse.userData)
+                    }else{
+                        onFailure(loginResponse.message)
+                    }
+                }else{
+                    onFailure(EM_NULL_USER_RESPONSE)
+                }
+            }
+        })
+    }
+
     override fun getUserData(
         email: String,
         password: String,

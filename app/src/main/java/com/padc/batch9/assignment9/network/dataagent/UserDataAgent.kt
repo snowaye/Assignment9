@@ -5,4 +5,6 @@ import com.padc.batch9.assignment9.data.vo.UserVo
 interface UserDataAgent {
 
     fun getUserData(email:String, password:String, onSuccess: (UserVo) -> Unit, onFailure:(String) -> Unit)
+
+    fun login(email:String, password: String, onSuccess:(UserVo) -> Unit, onFailure:(String) -> Unit)
 }
